@@ -1,6 +1,7 @@
 package com.springsimplespasos.conceptosbasicos.inyeccionDependencias.service;
 
 import com.springsimplespasos.conceptosbasicos.inyeccionDependencias.domain.Equipo;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 //@Primary
 @Component("equipo-espania")
+@ConditionalOnProperty(prefix = "app", name = "implementacion" , havingValue = "espania")
 public class EquipoServiceEspImpl implements EquipoService{
 
     private List<Equipo> equipos = new ArrayList<>(Arrays.asList(
